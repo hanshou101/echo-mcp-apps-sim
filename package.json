@@ -1,0 +1,48 @@
+{
+  "name": "echo-mcp-apps-sim",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Echo Show-style web host for MCP servers: Streamable HTTP, stateful sessions, MCP Apps, elicitation, and an OpenAI-compatible agent mode.",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-apps",
+    "elicitation",
+    "streamable-http"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "build": "vite build && vite build --config vite.fixture.config.ts",
+    "start": "tsx server.ts",
+    "demo": "bash scripts/demo.sh",
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && vitest run && playwright test",
+    "test:unit": "vitest run",
+    "test:e2e": "npm run build && playwright test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/client": "2.3.1",
+    "@modelcontextprotocol/ext-apps": "2.0.3",
+    "express": "^5.1.0",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/express": "2.0.2",
+    "@modelcontextprotocol/node": "2.1.1",
+    "@modelcontextprotocol/server": "2.3.1",
+    "@playwright/test": "1.64.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.10.1",
+    "cors": "^2.8.5",
+    "tsx": "^4.23.0",
+    "typescript": "^5.9.0",
+    "vite": "8.3.4",
+    "vite-plugin-singlefile": "2.3.4",
+    "vitest": "4.1.12"
+  }
+}

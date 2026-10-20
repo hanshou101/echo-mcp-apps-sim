@@ -1,0 +1,16 @@
+# dependencies and build output
+node_modules/
+dist/
+
+# test output
+test-results/
+playwright-report/
+
+# secrets — .env is yours, .env.example is committed
+.env
+.env.*
+!.env.example
+
+# local noise
+.DS_Store
+*.log

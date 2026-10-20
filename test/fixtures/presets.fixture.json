@@ -1,0 +1,28 @@
+{
+  "presets": [
+    {
+      "id": "echo",
+      "label": "Show echo",
+      "tool": "show_echo",
+      "args": { "label": "Hello from the host" }
+    },
+    {
+      "id": "bump",
+      "label": "Bump counter",
+      "tool": "bump_counter",
+      "args": {}
+    },
+    {
+      "id": "choice",
+      "label": "Ask a choice",
+      "tool": "ask_choice",
+      "args": {}
+    },
+    {
+      "id": "weather",
+      "label": "Fetch weather",
+      "tool": "get_weather",
+      "args": {}
+    }
+  ]
+}

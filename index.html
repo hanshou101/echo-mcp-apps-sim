@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Echo MCP Apps Sim</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">MCP</span>
+          <span class="brand-text">APPS · ECHO-STYLE HOST</span>
+        </div>
+        <div id="badge" class="badge" data-testid="connection-badge">connecting…</div>
+        <div id="clock-control" class="clock-control" hidden>
+          <span class="clock-label">DEMO CLOCK</span>
+          <input id="clock-input" class="clock-input" type="time" step="60" aria-label="Demo clock time" />
+          <button id="clock-set" class="btn btn-ghost" type="button">Set</button>
+        </div>
+      </header>
+
+      <main class="stage-main">
+        <section class="device" aria-label="Echo Show style screen">
+          <div class="screen">
+            <div id="idle" class="idle">
+              <div id="idle-time" class="idle-time">--:--</div>
+              <div class="idle-hint">Call a tool to see its App here</div>
+            </div>
+            <div id="app-view" class="app-view" data-testid="app-view" hidden></div>
+            <div id="elicitation" class="elicitation" data-testid="elicitation-card" hidden>
+              <div class="elicitation-card" role="dialog" aria-modal="true" aria-labelledby="elicitation-message">
+                <p id="elicitation-message" class="elicitation-message" data-testid="elicitation-message"></p>
+                <div id="elicitation-fields" class="elicitation-fields"></div>
+                <button id="elicitation-cancel" class="btn btn-ghost elicitation-cancel" type="button">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="lightbar" id="lightbar" aria-hidden="true"></div>
+        </section>
+
+        <aside class="panel">
+          <section class="panel-block agent-block" id="agent-panel" data-testid="agent-panel">
+            <div class="panel-title">
+              Agent mode <span id="agent-model" class="count" data-testid="agent-model"></span>
+            </div>
+            <form id="agent-form" class="agent-form" autocomplete="off">
+              <input
+                id="agent-input"
+                class="agent-input"
+                data-testid="agent-input"
+                type="text"
+                placeholder="Ask anything…"
+                aria-label="Ask Alexa"
+              />
+              <button id="agent-send" class="btn agent-send" data-testid="agent-send" type="submit">
+                Ask
+              </button>
+            </form>
+            <div id="agent-hint" class="agent-hint" data-testid="agent-hint" hidden></div>
+            <label class="agent-voice">
+              <input id="voice-toggle" data-testid="voice-toggle" type="checkbox" checked />
+              <span>Speak replies</span>
+            </label>
+          </section>
+
+          <section class="panel-block">
+            <div class="panel-title">Quick actions</div>
+            <div id="presets" class="presets" data-testid="presets"></div>
+          </section>
+
+          <section class="panel-block">
+            <div class="panel-title">Tools <span id="tool-count" class="count">0</span></div>
+            <div id="tools" class="tools" data-testid="tool-list"></div>
+          </section>
+
+          <section class="panel-block feed-block">
+            <div class="panel-title">Conversation &amp; tool calls</div>
+            <div id="feed" class="feed" data-testid="feed"></div>
+          </section>
+
+          <details class="console" id="console">
+            <summary>Tool console</summary>
+            <div class="console-body">
+              <select id="console-tool" class="console-tool" aria-label="Tool"></select>
+              <textarea id="console-args" class="console-args" spellcheck="false" rows="4" aria-label="Arguments JSON">{}</textarea>
+              <button id="console-call" class="btn" type="button">Call tool</button>
+              <div id="console-error" class="console-error" hidden></div>
+            </div>
+          </details>
+        </aside>
+      </main>
+
+      <footer class="footer">Simulated Alexa+ experience · unofficial demo</footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark" />
+    <!-- CSP is set via HTTP headers by server.ts (based on the ?csp= query param).
+         The inner iframe inherits it because we use document.write(). -->
+    <title>MCP Apps sandbox proxy</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: transparent;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      iframe {
+        background-color: transparent;
+        border: 0 none transparent;
+        padding: 0;
+        overflow: hidden;
+        flex-grow: 1;
+        color-scheme: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module" src="/src/sandbox.ts"></script>
+  </body>
+</html>
