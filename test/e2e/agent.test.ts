@@ -196,7 +196,7 @@ test.describe("agent loop against the example server (scripted LLM)", () => {
       mcpPort: 3302,
       llmBaseUrl: "http://127.0.0.1:3299/v1",
       apiKey: "stub-key-not-a-secret",
-      model: "stub-model",
+      model: "scripted-demo",
     });
     await waitFor("http://127.0.0.1:8280/api/config", 60_000);
   });
@@ -210,7 +210,7 @@ test.describe("agent loop against the example server (scripted LLM)", () => {
   test("one sentence → tool call → App → elicitation → reply", async ({ page }) => {
     await page.goto("http://127.0.0.1:8280/");
     await expect(page.getByTestId("connection-badge")).toContainText("fixture-tower 0.1.0");
-    await expect(page.getByTestId("agent-model")).toHaveText("stub-model");
+    await expect(page.getByTestId("agent-model")).toHaveText("scripted-demo");
 
     await page.getByTestId("agent-input").fill("Show a hello card");
     await page.getByTestId("agent-send").click();
